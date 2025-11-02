@@ -1,5 +1,6 @@
 .header {
-  height: calc(var(--zaui-safe-area-inset-top, 0px) + 55px);
+  padding: 12px;
+  height: calc(var(--zaui-safe-area-inset-top, 0px) + 70px);
   @include flex(row, space-between, center, 8px, nowrap);
   &__logo {
     text-align: start;
@@ -10,7 +11,7 @@
     color: $text-black-title;
   }
   &__menu {
-    @include flex(row, flex-end, center, 4px, nowrap);
+    @include flex(row, flex-end, center, 8px, nowrap);
     button {
       background-color: transparent;
       border: none;

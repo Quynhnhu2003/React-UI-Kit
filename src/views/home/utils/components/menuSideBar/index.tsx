@@ -1,51 +1,74 @@
+// ** React Import
+import { useDispatch } from "react-redux";
+import { Fragment, useState } from "react";
+
 // ** Styles Import
-import styles from './index.module.scss';
+import styles from "./index.module.scss";
 
 // ** Another Import
-import { Dialog } from '@mui/material';
-import { Transition } from '../../../../../utils/components/Transition';
-import { useAppSelector } from '../../../../../hooks/useReduxHook';
-import { useDispatch } from 'react-redux';
-import { handleShowMenubar } from '../../../store/headerStore';
-import { useEffect } from 'react';
+import { Dialog } from "@mui/material";
+import ListArtists from "./components/ListArtists";
+import { handleShowMenubar } from "../../../store/headerStore";
+import { useAppSelector } from "../../../../../hooks/useReduxHook";
+import { Transition } from "../../../../../utils/components/Transition";
+import { listItemMenu } from "../../../../../data/home/listMenuSideBar";
 
 function MenuSidebar() {
-    // ** Hook
-    const dispatch = useDispatch();
-    const {showMenubar} = useAppSelector((store) => store.home.header)
+  // ** State
+  const [showList, setShowList] = useState<boolean>(false);
 
-    // ** function
-    const closeSideBar = () => {
-        dispatch(handleShowMenubar(!showMenubar));
-    }
+  // ** Hook
+  const dispatch = useDispatch();
+  const showMenubar = useAppSelector((store) => store.home.header);
 
-    useEffect(() => {
-        console.log('showMenubar', showMenubar)
-    }, [showMenubar]);
-    return (
-        <Dialog
-      fullScreen
-      open={showMenubar}
+  // ** Function
+  const closeSideBar = () => {
+    dispatch(handleShowMenubar(false));
+  };
+
+  const handleShowList = () => {
+    setShowList(!showList);
+  };
+
+  return (
+    <Dialog
       onClose={closeSideBar}
+      open={showMenubar.showMenubar}
       TransitionComponent={Transition}
+      className={styles.menuSideBar}
       PaperProps={{
         style: {
-          position: "fixed",
-          bottom: 0,
           margin: 0,
           width: "100%",
           maxHeight: "70%",
-          borderRadius: "16px 16px 0 0",
           height: "auto",
           overflow: "hidden",
+          backgroundColor: '#FAF4EB',
         },
       }}
-      className={styles.modalAddress}
     >
-      <button className={styles.handle} onClick={closeSideBar}></button>
-      
+      <button className={styles.menuSideBar__close} onClick={closeSideBar}>
+        <span className="material-symbols-outlined">close</span>
+      </button>
+      <div className={styles.menuSideBar__list}>
+        {listItemMenu.map((item) => (
+          <button className={styles.item}>
+            {item.menuExtra ? (
+              <Fragment>
+                <p onClick={handleShowList}>
+                  {item.name}
+                  {showList ? item.icon : item.iconActive}
+                </p>
+                <ListArtists showList={showList} />
+              </Fragment>
+            ) : (
+              item.name
+            )}
+          </button>
+        ))}
+      </div>
     </Dialog>
-    )
+  );
 }
 
-export default MenuSidebar
+export default MenuSidebar;

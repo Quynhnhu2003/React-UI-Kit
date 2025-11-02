@@ -1,0 +1,22 @@
+.listArtists {
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease-in-out;
+
+  &--show {
+    opacity: 1;
+    max-height: 300px;
+    transform: translateY(0);
+  }
+
+  .artist {
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: $text-primary;
+    background-color: transparent;
+  }
+}

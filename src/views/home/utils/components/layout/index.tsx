@@ -1,10 +1,13 @@
+// ** React Import
+import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 // ** Styles Import
 import styles from "./index.module.scss";
 
 // ** Another Import
-import { Outlet } from "react-router-dom";
 import HeaderHome from "../header";
-import { useDispatch } from "react-redux";
+import MenuSidebar from "../menuSideBar";
 import { handleShowMenubar } from "../../../store/headerStore";
 
 export default function LayoutHome() {
@@ -21,6 +24,7 @@ export default function LayoutHome() {
     <div className={styles.layoutContainer}>
       <HeaderHome onClickSideBar={() => showSideBar()}  />
       <Outlet />
+      <MenuSidebar />
     </div>
   );
 }
