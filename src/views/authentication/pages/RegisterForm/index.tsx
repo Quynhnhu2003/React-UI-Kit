@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 import { useState } from 'react';
 import { AuthenRoutePaths } from '../../utils/enum/home';
 
-function LoginForm() {
+function RegisterForm() {
   // ** State
   const [showPass, setShowPass] = useState<boolean>(false);
 
@@ -15,16 +15,18 @@ function LoginForm() {
 
   // ** function
   const handleNavigate = () => {
-    navigate('/' + AuthenRoutePaths.REGISTER);
+    navigate('/' + AuthenRoutePaths.SIGN_IN);
   };
 
   return (
-    <div className={styles.loginForm}>
-      <div className={styles.loginForm__form}>
-        <p className={styles.loginForm__header}>faniverse</p>
-        <p className={styles.loginForm__form__title}>Login</p>
+    <div className={styles.registerForm}>
+      <div className={styles.registerForm__background}></div>
 
-        <div className={styles.loginForm__form__inputWrapper}>
+      <div className={styles.registerForm__form}>
+        <p className={styles.registerForm__header}>faniverse</p>
+        <p className={styles.registerForm__form__title}>Register</p>
+
+        <div className={styles.registerForm__form__inputWrapper}>
           <label htmlFor='email'>Email</label>
           <input
             type='text'
@@ -34,7 +36,7 @@ function LoginForm() {
           />
         </div>
 
-        <div className={styles.loginForm__form__inputWrapper}>
+        <div className={styles.registerForm__form__inputWrapper}>
           <label htmlFor='password'>Password</label>
           <div className={styles.password}>
             <input
@@ -59,13 +61,43 @@ function LoginForm() {
           </div>
         </div>
 
-        <button className={styles.loginForm__form__forgot}>
-          Forgot Password?
-        </button>
-        <button className={styles.loginForm__form__btnSigin}>Sign in</button>
-        <p className={styles.loginForm__form__continue}>or continue with</p>
+        <div className={styles.registerForm__form__inputWrapper}>
+          <label htmlFor='password'>Confirm Password</label>
+          <div className={styles.password}>
+            <input
+              type={showPass ? 'text' : 'password'}
+              name='password'
+              id='password'
+              placeholder='Enter your password'
+            />
 
-        <div className={styles.loginForm__form__options}>
+            <button
+              className={styles.visibility}
+              onClick={() => setShowPass(!showPass)}
+            >
+              {showPass ? (
+                <span className='material-symbols-outlined'>visibility</span>
+              ) : (
+                <span className='material-symbols-outlined'>
+                  visibility_off
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.registerForm__form__btn}>
+          <button className={styles.sigup}>Sign up</button>
+          <button className={styles.sigin} onClick={handleNavigate}>
+            Have Account? Sign in{' '}
+            <span className='material-symbols-outlined'>
+              keyboard_double_arrow_right
+            </span>
+          </button>
+        </div>
+        <p className={styles.registerForm__form__continue}>or continue with</p>
+
+        <div className={styles.registerForm__form__options}>
           <button className={styles.item}>
             <img
               src='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'
@@ -85,16 +117,9 @@ function LoginForm() {
             />
           </button>
         </div>
-
-        <div className={styles.loginForm__form__register}>
-          Don't have an account yet?{' '}
-          <button onClick={handleNavigate}>Register for free</button>
-        </div>
       </div>
-
-      <div className={styles.loginForm__background}></div>
     </div>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

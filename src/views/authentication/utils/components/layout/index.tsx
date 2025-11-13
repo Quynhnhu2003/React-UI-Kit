@@ -6,8 +6,10 @@ import styles from './index.module.scss';
 
 export default function LayoutAuthen() {
   return (
-    <div className={styles.layoutContainer}>
-      <Outlet />
+    <div className={styles.authenContainer}>
+      <div className={styles['authenContainer--login']}>
+        <Outlet />
+      </div>
     </div>
   );
 }
