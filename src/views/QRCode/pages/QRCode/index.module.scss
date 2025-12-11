@@ -1,0 +1,176 @@
+$primary-start: #ff6ec7;
+$primary-end: #ffd166;
+$bg-gray: #f5f5f5;
+$border-color: #dcdcdc;
+
+/* Gradient chung */
+@mixin gradient-primary {
+  background: linear-gradient(90deg, $primary-start, $primary-end);
+}
+
+.createQRContainer {
+  padding: 48px;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  background: $bg-gray;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  position: absolute;
+  top: 80px;
+  flex-wrap: wrap;
+  padding-bottom: 10rem !important;
+  &__formContainer,
+  &__resultQR {
+    background: #fff;
+    padding: 32px;
+    border-radius: 14px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08),
+      0px 8px 20px rgba(0, 0, 0, 0.06);
+    width: 480px;
+    max-width: 100%;
+    animation: fadeIn 0.25s ease;
+  }
+
+  /* TITLE with gradient */
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 26px;
+    padding: 14px 0;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    @include gradient-primary;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    label {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    select {
+      border: none;
+      background: $bg-gray;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.25s;
+
+      &:hover {
+        background: darken($bg-gray, 5%);
+      }
+    }
+  }
+
+  &__resultQR__item {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+/* Form Material */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  &--input {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #555;
+
+      span {
+        color: #ff4a95;
+      }
+    }
+
+    input,
+    select {
+      border: none;
+      background: #eeeeee;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: 0.25s;
+
+      &:focus {
+        outline: none;
+        background: white;
+        box-shadow: 0px 0px 0px 3px rgba(255, 110, 199, 0.35);
+      }
+    }
+  }
+
+  /* BUTTON Material + gradient */
+  &__buttonContainer {
+    display: flex;
+    justify-content: center;
+
+    &--button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      button {
+        width: 65%;
+        padding: 12px 0;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.4px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: 0.25s;
+        @include gradient-primary;
+        box-shadow: 0px 6px 14px rgba(255, 110, 199, 0.35);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0px 8px 18px rgba(255, 110, 199, 0.45);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .imgContainer {
+    padding: 20px;
+    gap: 32px;
+    top: 90px;
+    padding-bottom: 7rem !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

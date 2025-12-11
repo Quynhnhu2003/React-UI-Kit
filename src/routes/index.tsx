@@ -3,7 +3,6 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 
 // ** Component Imports
 import homeRoutes from '../views/home/routes/homeRoutes';
-import authenticationRoutes from '../views/authentication/routes/authenticationRoutes';
 
 // ** Redux
 import { resetDialogContent } from '../store/dialogStore';
@@ -11,8 +10,9 @@ import { resetDialogContent } from '../store/dialogStore';
 // ** Tracking
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxHook';
 import ConfirmDialogCustom from '../utils/components/CustomConfirmDialog';
+import qrCodeRoutes from '../views/QRCode/routes/qrRoutes';
 
-const listRouters = [...homeRoutes, ...authenticationRoutes];
+const listRouters = [...homeRoutes, ...qrCodeRoutes];
 
 const RouterComponent = () => {
   const dispatch = useAppDispatch();

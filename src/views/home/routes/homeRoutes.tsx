@@ -8,7 +8,7 @@ import { RouteObject } from 'react-router-dom';
 
 const homeRoutes: RouteObject[] = [
   {
-    path: '/',
+    path: '*',
     element: <LayoutHome />,
     children: [
       {

@@ -13,7 +13,7 @@ export default defineConfig({
       include: ['src/**/*.{ts,tsx,js,jsx}'], // Specify the file types to lint
     }),
   ],
-  base: '/web/faniverse',
+  base: '/web/ui-example',
   logLevel: 'info',
   resolve: {
     alias: {
