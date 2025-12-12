@@ -12,15 +12,19 @@ export const options = [
     label: 'Toast',
   },
   {
-    id: 'component-input',
+    id: 'input',
     label: 'Input',
   },
   {
-    id: 'component-select',
+    id: 'select',
     label: 'Select',
   },
   {
-    id: 'component-table',
+    id: 'table',
     label: 'Table',
+  },
+  {
+    id: 'calendar',
+    label: 'Calendar',
   },
 ];

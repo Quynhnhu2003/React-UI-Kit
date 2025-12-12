@@ -22,6 +22,9 @@
     gap: 26px;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     padding: 40px;
+    height: 85vh;
+    overflow-y: auto;
+    padding-bottom: 5rem;
   }
 
   .option-card {

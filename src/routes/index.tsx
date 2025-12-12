@@ -11,8 +11,15 @@ import { resetDialogContent } from '../store/dialogStore';
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxHook';
 import ConfirmDialogCustom from '../utils/components/CustomConfirmDialog';
 import qrCodeRoutes from '../views/QRCode/routes/qrRoutes';
+import toastRoutes from '../views/toast/routes/toastRoutes';
+import calendarRoutes from '../views/calendar/routes/calendarRoutes';
 
-const listRouters = [...homeRoutes, ...qrCodeRoutes];
+const listRouters = [
+  ...homeRoutes,
+  ...qrCodeRoutes,
+  ...toastRoutes,
+  ...calendarRoutes,
+];
 
 const RouterComponent = () => {
   const dispatch = useAppDispatch();

@@ -1,0 +1,115 @@
+.calendarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: rgba(0, 0, 0, 0.5);
+  &__content {
+    width: 22.5rem;
+    height: fit-content;
+    background-color: #fff;
+    padding: 1.5rem 1.188rem;
+    &__header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      justify-content: space-between;
+      &__icon {
+        width: 1rem;
+        display: flex;
+        align-items: center;
+      }
+      &__title {
+        gap: 0.5rem;
+        border: none;
+        display: flex;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: 600;
+        background: none;
+        color: #464646;
+        align-items: center;
+        padding: 0.25rem 0.5rem;
+        transition: all 0.2s ease;
+      }
+    }
+    &__body {
+      &__grid {
+        display: grid;
+        text-align: center;
+        &--day {
+          gap: 0.875rem 0.438rem;
+          grid-template-columns: repeat(7, 1fr);
+        }
+        &--month {
+          gap: 2.5rem 0.625rem;
+          grid-template-columns: repeat(4, 1fr);
+        }
+        &--year {
+          gap: 1.313rem;
+          overflow-y: auto;
+          max-height: 19.375rem;
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      &__day {
+        display: flex;
+        font-size: 1rem;
+        font-weight: 400;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        &--weekdays {
+          pointer-events: none;
+        }
+        &--selected {
+          color: #464646;
+          font-weight: bold;
+          border-radius: 50%;
+          // background-color: #f5f5f5;
+          border: 0.063rem solid #2569ff;
+        }
+        &--preNext {
+          display: flex;
+          color: #cbcbcb;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+          font-size: 1rem;
+        }
+        &.empty {
+          cursor: default;
+          background: none;
+        }
+        &:not(.empty):hover {
+          background-color: #f5f5f5;
+        }
+      }
+      &__date {
+        border: 0;
+        outline: 0;
+        color: unset;
+        width: 4.5rem;
+        display: flex;
+        font-size: 1rem;
+        height: 2.25rem;
+        cursor: pointer;
+        font-weight: 400;
+        margin: 0.5rem 0;
+        line-height: 1.75;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.00938em;
+        background-color: transparent;
+        &--today {
+          border-radius: 50%;
+          background-color: #f5f5f5;
+        }
+        &--selected {
+          border-radius: 50%;
+          border: 1px solid #2569ff;
+        }
+      }
+    }
+  }
+}
