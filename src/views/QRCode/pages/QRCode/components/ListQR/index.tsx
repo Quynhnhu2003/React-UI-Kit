@@ -1,21 +1,22 @@
+// ** Styles Import
 import styles from './index.module.scss';
+
+// ** Another Import
 import { jsPDF } from 'jspdf';
-import { useState } from 'react';
-import CountDown from '../../../QRCode/components/CountDown';
+import { useEffect, useState } from 'react';
 import domtoimage from 'dom-to-image';
 import { QRCodeCanvas } from 'qrcode.react';
+import CountDown from '../../../QRCode/components/CountDown';
 
-interface ListQRProps {
-  dataQR: any;
-}
-
-export default function ListQR({ dataQR }: ListQRProps) {
+export default function ListQR({ dataQR }: any) {
+  // ** State
   const [countDown, setCountDown] = useState<number>(0);
   const [pages, setPages] = useState<number>(1);
 
-  // ** Function: slice array to get 4 div in column
-  const chunkArray = (arr: any, size: any) => {
-    return arr.reduce((acc: any, _: any, i: any) => {
+  // ** Function
+  const chunkArray = (arr: any[], size: number) => {
+    // Feature: slice array to get 4 div in column
+    return arr.reduce((acc: any[], _: any, i: number) => {
       if (i % size === 0) acc.push(arr.slice(i, i + size));
       return acc;
     }, []);
@@ -25,9 +26,9 @@ export default function ListQR({ dataQR }: ListQRProps) {
     dataQR.codeContract,
     dataQR.paperSize == 0 ? 4 : dataQR.qrSize == 1 ? 2 : 3
   );
-
-  // ** Function: merge 4 groupDiv to groupPage is a page
   const groupPages = [];
+
+  // Feature: merge 4 groupDiv to groupPage is a page
   // Check user choose 'a4'
   if (dataQR.paperSize == 0) {
     // Check user choose qr size is '3cm x 3cm'
@@ -54,8 +55,8 @@ export default function ListQR({ dataQR }: ListQRProps) {
     }
   }
 
-  // ** Function: Reset countdown when done
   const funcDown = () => {
+    // Feature: Reset countdown when done
     setCountDown(0);
   };
 
@@ -77,8 +78,7 @@ export default function ListQR({ dataQR }: ListQRProps) {
     for (let index = 0; index < groupPages.length; index++) {
       const qrCodeElement = document.getElementById(`qr-code-${index + 1}`);
 
-      if (!qrCodeElement) continue;
-
+      if (!qrCodeElement) return;
       const res = await domtoimage.toPng(qrCodeElement);
 
       for (let pageIndex = 0; pageIndex < 2; pageIndex++) {
@@ -148,6 +148,7 @@ export default function ListQR({ dataQR }: ListQRProps) {
                     dataQR.qrType == 1
                       ? styles.listQRContainer__list__page
                       : styles.listQRContainer__list__page +
+                        ' ' +
                         (dataQR.paperSize == 0
                           ? styles['listQRContainer__list__page--a4']
                           : styles['listQRContainer__list__page--a5'])

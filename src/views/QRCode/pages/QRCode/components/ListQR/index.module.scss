@@ -7,13 +7,34 @@
   &__header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     &__title {
-      text-align: justify;
-      font-weight: 600;
-      font-size: 25px;
       margin: 0;
+      width: 70%;
+      font-size: 25px;
+      font-weight: 600;
+      text-align: justify;
+    }
+
+    &__printQR {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      button {
+        width: 30%;
+        border: none;
+        padding: 12px 0;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: 0.25s;
+        border-radius: 40px;
+        letter-spacing: 0.4px;
+        box-shadow: 0px 6px 14px rgba(255, 110, 199, 0.35);
+        background: linear-gradient(90deg, #ff6ec7, #ffd166);
+      }
     }
   }
   &__list {
@@ -58,13 +79,6 @@
     &__number {
       display: flex;
       justify-content: flex-end;
-    }
-  }
-
-  &__printQR {
-    width: 100%;
-    button {
-      width: 25%;
     }
   }
 }

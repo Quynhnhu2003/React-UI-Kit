@@ -1,24 +1,9 @@
 //Colors
-$body-primary-color: #F8EBD7; //Nền trang chính
-$body-sub-color: #FAF4EB; //Nền khối nội dung, card
-$body-primary: #8B4513; //Logo, tiêu đề, icon chính
+$primary-start: #ff6ec7;
+$primary-end: #ffd166;
+$bg-gray: #f5f5f5;
+$border-color: #dcdcdc;
 
-$brand-primary-color: #0062ff;
-$brand-primary-variant: #83baff;
-$brand-primary-container: #eaf3ff;
-
-$border-stroke-light: #D7C3A3; //Viền card, button, input
-$border-stroke-primary: #d1d1d1;
-
-$button-none-active: #EBDDC9; //Button secondary, background section
-$button-active: #B86530; //Hover button, link
-$button-primary: #C97B4A; //Button chính (active), hover, link
-
-$text-black-title: #3d3d3d;
-$text-primary: #3B2F2F; //Nội dung text
-$text-secondary: #6B5E53; //Mô tả, secondary text
-$text-disable: #cbcbcb;
-$icon-text-dark: #252525;
 $white: #fff;
 $dark: #e3e3e3;
 
@@ -26,6 +11,9 @@ $error: #ff2156;
 $success: #55db1e;
 $warning: #ffac0e;
 
+@mixin gradient-primary {
+  background: linear-gradient(90deg, $primary-start, $primary-end);
+}
 
 //Spacing
 $extra-large: 40px;

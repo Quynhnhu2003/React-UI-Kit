@@ -5,17 +5,8 @@ import styles from './index.module.scss';
 import * as XLSX from 'xlsx';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
-// ** Components Import
-import ListQR from '../QRHasImage/components/ListQR';
-
-type FormQR = {
-  codeContract: string[];
-  url?: string;
-  paperSize: string;
-  qrSize: string;
-  qrType: string;
-};
+import ListQR from './components/ListQR';
+import { FormQR } from '../../utils/types/qrCodeType';
 
 function QRCode() {
   // ** State
@@ -92,29 +83,25 @@ function QRCode() {
         >
           {/***** Select: type of get contract code *****/}
           <div className={styles['formContainer--input']}>
-            <label>
-              Chọn kiểu nhập mã hợp đồng
-              <select onChange={(e) => setTypeSelect(e.target.value)}>
-                <option value='manual'>Nhập thủ công</option>
-                <option value='file' selected>
-                  Nhập theo file hợp đồng
-                </option>
-              </select>
-            </label>
+            <label>Chọn kiểu nhập mã hợp đồng</label>
+            <select onChange={(e) => setTypeSelect(e.target.value)}>
+              <option value='manual'>Nhập thủ công</option>
+              <option value='file' selected>
+                Nhập theo file hợp đồng
+              </option>
+            </select>
           </div>
           {/***** Input: import data using manual or file *****/}
           <div className={styles['formContainer--input']}>
             {typeSelect === 'manual' ? (
               <div className={styles['formContainer--input']}>
-                <label>
-                  Nhập mã hợp đồng
-                  <input
-                    type='text'
-                    placeholder='Examples: 123456, abc4852'
-                    required
-                    {...register('codeContract')}
-                  />
-                </label>
+                <label>Nhập mã hợp đồng</label>
+                <input
+                  type='text'
+                  placeholder='Examples: 123456, abc4852'
+                  required
+                  {...register('codeContract')}
+                />
               </div>
             ) : (
               <div className={styles['formContainer--input']}>

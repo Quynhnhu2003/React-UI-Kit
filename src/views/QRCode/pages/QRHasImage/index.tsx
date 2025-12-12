@@ -1,37 +1,38 @@
-// App.tsx hoặc QRGenerator.tsx
-
-import React, { useEffect, useRef, useState } from 'react';
-import QRCodeStyling from 'qr-code-styling';
+// ** Styles Import
 import styles from './index.module.scss';
 
+// ** Another Import
+import QRCodeStyling from 'qr-code-styling';
+import React, { useEffect, useRef, useState } from 'react';
+
+type typeCodeEnum =
+  | 'rounded'
+  | 'dots'
+  | 'classy'
+  | 'classy-rounded'
+  | 'square'
+  | 'extra-rounded';
+
 const QRHasImage = () => {
-  const qrCodeRef = useRef<any>(null);
-
-  const [urlPrefix, setUrlPrefix] = useState('');
-  const [colorCode, setColorCode] = useState('');
-  const [typeLogo, setTypeLogo] = useState('show');
-
-  const [typeCode, setTypeCode] = useState<
-    | 'rounded'
-    | 'dots'
-    | 'classy'
-    | 'classy-rounded'
-    | 'square'
-    | 'extra-rounded'
-  >('rounded');
-  const [qrData, setQrData] = useState('');
-  const [logo, setLogo] = useState(
-    'https://hi-static.fpt.vn/sys/hifpt/pnc_pdx/new-portal/hifpt.svg'
-  );
+  // ** State
+  const [logo, setLogo] = useState<string>('');
+  const [qrData, setQrData] = useState<string>('');
+  const [urlPrefix, setUrlPrefix] = useState<string>('');
+  const [colorCode, setColorCode] = useState<string>('');
+  const [typeCode, setTypeCode] = useState<typeCodeEnum>('rounded');
+  const [typeLogo, setTypeLogo] = useState<'show' | 'hidden'>('show');
   const [fileExt, setFileExt] = useState<'png' | 'jpeg' | 'webp'>('png');
 
+  // ** Hook
+  const qrCodeRef = useRef<any>(null);
   const qrCode = useRef(
     new QRCodeStyling({
       width: 200,
       height: 200,
       type: 'canvas',
       data: '',
-      image: 'https://hi-static.fpt.vn/sys/hifpt/pnc_pdx/new-portal/hifpt.svg',
+      image:
+        'https://res.cloudinary.com/dwcg5odh2/image/upload/v1761378325/logo-faniverse_ckqotb.png',
       dotsOptions: {
         color: colorCode,
         type: 'rounded',
@@ -42,7 +43,7 @@ const QRHasImage = () => {
       },
     })
   );
-  console.log(typeCode);
+
   // Append QR to DOM
   useEffect(() => {
     if (qrCodeRef.current) {
@@ -70,22 +71,6 @@ const QRHasImage = () => {
     }
   };
 
-  const handleSend = () => {
-    const data = {
-      type: 'user-login',
-      avatarInput: logo,
-      colorCode: colorCode,
-      url: urlPrefix,
-      isBack: 'isBack',
-    };
-
-    window.parent.postMessage(
-      data,
-      // "http://localhost:5173/web/ecounter/get-feedback-from-iframe?test=123456"
-      'https://staging-hi.fpt.vn/web/ecounter/get-feedback-from-iframe?test=123456'
-    );
-  };
-
   // Handle form submission
   const handleGenerateQR = (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,8 +82,6 @@ const QRHasImage = () => {
     setQrData(fullUrl);
 
     console.log(qrData);
-
-    handleSend();
   };
 
   const downloadQRCode = () => {

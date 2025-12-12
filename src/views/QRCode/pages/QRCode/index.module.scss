@@ -1,46 +1,50 @@
-$primary-start: #ff6ec7;
-$primary-end: #ffd166;
-$bg-gray: #f5f5f5;
-$border-color: #dcdcdc;
-
 /* Gradient chung */
-@mixin gradient-primary {
-  background: linear-gradient(90deg, $primary-start, $primary-end);
-}
 
 .createQRContainer {
+  gap: 40px;
+  top: 80px;
+  width: 100%;
   padding: 48px;
   height: 100vh;
-  width: 100%;
-  overflow-y: auto;
-  background: $bg-gray;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  position: absolute;
-  top: 80px;
   flex-wrap: wrap;
+  display: flex;
+  overflow-y: auto;
+  position: absolute;
+  background: $bg-gray;
+  justify-content: center;
   padding-bottom: 10rem !important;
+  @media (max-width: 500px) {
+    padding: 24px;
+  }
+  &__formContainer {
+    flex: 4;
+    max-width: 380px;
+    min-width: 300px;
+  }
+
+  &__resultQR {
+    flex: 6;
+    max-width: 900px;
+  }
   &__formContainer,
   &__resultQR {
-    background: #fff;
     padding: 32px;
+    max-width: 100%;
+    background: #fff;
     border-radius: 14px;
+    animation: fadeIn 0.25s ease;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08),
       0px 8px 20px rgba(0, 0, 0, 0.06);
-    width: 480px;
-    max-width: 100%;
-    animation: fadeIn 0.25s ease;
   }
 
   /* TITLE with gradient */
   &__title {
-    text-align: center;
-    font-weight: 700;
+    color: white;
     font-size: 26px;
     padding: 14px 0;
-    color: white;
+    font-weight: 700;
+    text-align: center;
     border-radius: 10px;
     margin-bottom: 24px;
     @include gradient-primary;
@@ -49,9 +53,9 @@ $border-color: #dcdcdc;
 
   &__header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
+    justify-content: space-between;
 
     label {
       font-size: 15px;
@@ -60,11 +64,11 @@ $border-color: #dcdcdc;
 
     select {
       border: none;
-      background: $bg-gray;
-      padding: 8px 12px;
-      border-radius: 6px;
       cursor: pointer;
+      padding: 8px 12px;
       transition: 0.25s;
+      border-radius: 6px;
+      background: $bg-gray;
 
       &:hover {
         background: darken($bg-gray, 5%);
@@ -74,26 +78,26 @@ $border-color: #dcdcdc;
 
   &__resultQR__item {
     display: flex;
-    justify-content: center;
     margin-top: 20px;
+    justify-content: center;
   }
 }
 
 /* Form Material */
 .formContainer {
+  gap: 22px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
 
   &--input {
     display: flex;
     flex-direction: column;
 
     label {
+      color: #555;
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 6px;
-      color: #555;
 
       span {
         color: #ff4a95;
@@ -103,11 +107,11 @@ $border-color: #dcdcdc;
     input,
     select {
       border: none;
-      background: #eeeeee;
-      padding: 12px 14px;
-      border-radius: 8px;
       font-size: 15px;
       transition: 0.25s;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #eeeeee;
 
       &:focus {
         outline: none;
@@ -129,15 +133,15 @@ $border-color: #dcdcdc;
 
       button {
         width: 65%;
-        padding: 12px 0;
-        border-radius: 40px;
-        font-weight: 600;
-        font-size: 16px;
-        letter-spacing: 0.4px;
-        color: white;
         border: none;
+        color: white;
         cursor: pointer;
+        font-size: 16px;
+        padding: 12px 0;
+        font-weight: 600;
         transition: 0.25s;
+        border-radius: 40px;
+        letter-spacing: 0.4px;
         @include gradient-primary;
         box-shadow: 0px 6px 14px rgba(255, 110, 199, 0.35);
 
@@ -157,9 +161,9 @@ $border-color: #dcdcdc;
 /* Mobile */
 @media (max-width: 600px) {
   .imgContainer {
-    padding: 20px;
     gap: 32px;
     top: 90px;
+    padding: 20px;
     padding-bottom: 7rem !important;
   }
 }

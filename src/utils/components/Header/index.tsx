@@ -1,18 +1,11 @@
 // ** styles Import
+import { options } from '../../../data/home';
 import styles from './index.module.scss';
 
 // ** Another Import
 import { useEffect, useRef, useState } from 'react';
 
-const sections = [
-  { id: 'program', label: 'Chương trình' },
-  { id: 'featuredProducts', label: 'Nổi bật' },
-  { id: 'products', label: 'Sản phẩm' },
-  { id: 'reviews', label: 'Đánh giá' },
-  { id: 'contact', label: 'Liên hệ' },
-];
-
-function HeaderQrCode() {
+function Header() {
   // ** State
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
@@ -40,9 +33,6 @@ function HeaderQrCode() {
     setActive(item.id);
     scrollToSection(item.id);
 
-    const rect = e.target.getBoundingClientRect();
-    const parentLeft = e.target.parentElement.getBoundingClientRect().left;
-
     setUnderlineStyle({
       left: e.target.offsetLeft,
       width: e.target.offsetWidth,
@@ -54,7 +44,7 @@ function HeaderQrCode() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      sections.forEach((sec) => {
+      options.forEach((sec) => {
         const el = document.getElementById(sec.id);
         if (!el) return;
 
@@ -78,7 +68,7 @@ function HeaderQrCode() {
 
         {/* -------- Desktop Menu -------- */}
         <nav className={styles.menu} ref={menuRef}>
-          {sections.map((item) => (
+          {options.map((item) => (
             <div
               key={item.id}
               className={`${styles['menu-item']} ${
@@ -119,7 +109,7 @@ function HeaderQrCode() {
 
       {/* -------- Mobile Menu -------- */}
       <div className={`${styles['mobile-menu']} ${open ? styles.open : ''}`}>
-        {sections.map((item) => (
+        {options.map((item) => (
           <button key={item.id} onClick={() => scrollToSection(item.id)}>
             {item.label}
           </button>
@@ -136,4 +126,4 @@ function HeaderQrCode() {
   );
 }
 
-export default HeaderQrCode;
+export default Header;

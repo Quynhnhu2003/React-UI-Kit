@@ -5,12 +5,12 @@ import { Outlet } from 'react-router-dom';
 import styles from './index.module.scss';
 
 // ** Another Import
-import HeaderHome from '../header';
+import Header from '../../../../../utils/components/Header';
 
 export default function LayoutHome() {
   return (
     <div className={styles.layoutContainer}>
-      <HeaderHome />
+      <Header />
       <Outlet />
     </div>
   );

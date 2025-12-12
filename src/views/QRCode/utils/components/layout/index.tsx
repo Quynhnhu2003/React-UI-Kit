@@ -5,12 +5,12 @@ import { Outlet } from 'react-router-dom';
 import styles from './index.module.scss';
 
 // ** Another Import
-import HeaderQrCode from '../header';
+import Header from '../../../../../utils/components/Header';
 
 export default function LayoutQrCode() {
   return (
     <div className={styles.layoutContainer}>
-      <HeaderQrCode />
+      <Header />
       <Outlet />
     </div>
   );
