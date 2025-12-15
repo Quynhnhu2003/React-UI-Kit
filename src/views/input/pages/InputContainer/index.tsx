@@ -56,13 +56,11 @@ function InputContainer() {
           </Input.Textarea>
         </div>
 
-        <div className={styles['option-card']}>
-          <Input.Calendar
-            views={['day', 'month', 'year']}
-            beginFromDay='Sunday'
-            formatDayOfweek={['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7']}
-          ></Input.Calendar>
-        </div>
+        <Input.Calendar
+          views={['day', 'month', 'year']}
+          beginFromDay='Sunday'
+          formatDayOfweek={['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7']}
+        ></Input.Calendar>
 
         <div className={styles['option-card']}>
           <CheckboxGroup

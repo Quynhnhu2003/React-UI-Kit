@@ -47,6 +47,7 @@
     display: flex;
     color: #464646;
     align-items: center;
+    white-space: nowrap;
     justify-content: space-between;
     &--first {
       justify-content: flex-start;
