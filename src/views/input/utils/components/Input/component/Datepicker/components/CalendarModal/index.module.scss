@@ -1,0 +1,121 @@
+.modalContainer {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 1000;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  &__content {
+    width: 22.5rem;
+    height: fit-content;
+    border-radius: 0.625rem;
+    padding: 1.5rem 1.188rem;
+    background-color: #fff;
+    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+    &__header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      justify-content: space-between;
+      &__icon {
+        display: flex;
+        width: 0.75rem;
+        align-items: center;
+      }
+      &__title {
+        gap: 0.5rem;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        font-size: 1rem;
+        background: none;
+        font-weight: 600;
+        color: #464646;
+        align-items: center;
+        padding: 0.25rem 0.5rem;
+        transition: all 0.2s ease;
+      }
+    }
+    &__body {
+      &__grid {
+        display: grid;
+        text-align: center;
+        &--day {
+          gap: 0.875rem 0.5rem;
+          grid-template-columns: repeat(7, 1fr);
+        }
+        &--month {
+          gap: 3.125rem 2.5rem;
+          grid-template-columns: repeat(3, 1fr);
+        }
+        &--year {
+          gap: 1rem;
+          overflow-y: auto;
+          max-height: 19.375rem;
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      &__day {
+        display: flex;
+        cursor: pointer;
+        min-width: 2.5rem;
+        user-select: none;
+        min-height: 2.5rem;
+        font-size: 0.875rem;
+        align-items: center;
+        justify-content: center;
+        &--weekdays {
+          pointer-events: none;
+        }
+        &--selected {
+          color: #464646;
+          font-weight: bold;
+          border-radius: 50%;
+          background-color: #f5f5f5;
+          border: 0.063rem solid #2569ff;
+        }
+        &--preNext {
+          display: flex;
+          color: #cbcbcb;
+          align-items: center;
+          justify-content: center;
+        }
+        &.empty {
+          cursor: default;
+          background: none;
+        }
+        &:not(.empty):hover {
+          background-color: #f5f5f5;
+        }
+      }
+      &__date {
+        outline: 0;
+        display: flex;
+        width: 4.5rem;
+        font-size: 1rem;
+        height: 2.25rem;
+        cursor: pointer;
+        font-weight: 400;
+        margin: 0.5rem 0;
+        line-height: 1.75;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.00938em;
+        background-color: transparent;
+        &--today {
+          border-radius: 50%;
+          // background-color: #f5f5f5;
+          background-color: #e7e7e7;
+        }
+        &--selected {
+          border-radius: 50%;
+          border: 0.063rem solid #2569ff;
+        }
+      }
+    }
+  }
+}

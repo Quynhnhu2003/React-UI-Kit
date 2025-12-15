@@ -1,0 +1,40 @@
+.paswordContainer {
+  gap: 0.5rem;
+  width: 100%;
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+  &__title {
+    display: block;
+    font-size: 1rem;
+    color: #888888;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    position: relative;
+    &__input {
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 400;
+      min-height: 3rem;
+      color: #464646;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border: 0.063rem solid #e7e7e7;
+      background-color: transparent;
+      &::placeholder {
+        color: #cbcbcb;
+      }
+    }
+    &__button {
+      border: none;
+      right: 0.75rem;
+      bottom: 0.5rem;
+      border-radius: 50%;
+      position: absolute;
+      font-size: 1.125rem;
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.dateContainer {
+  width: 100%;
+  gap: 0.5rem;
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+  &__title {
+    display: block;
+    font-size: 1rem;
+    color: #888888;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    &__input {
+      width: 100%;
+      font-size: 1rem;
+      color: #464646;
+      min-height: 3rem;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background-color: transparent;
+      border: 0.063rem solid #e7e7e7;
+    }
+    &__button {
+      border: none;
+      right: 0.625rem;
+      bottom: 0.625rem;
+      position: absolute;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.phoneField {
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+  color: #434343;
+  &__required {
+    color: #ff2156 !important;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #9ca3af;
+  border-radius: 12px;
+  height: 56px;
+  background: #fff;
+  transition: all 0.2s;
+
+  &:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  }
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #374151;
+
+  i {
+    font-size: 14px;
+    color: #6b7280;
+  }
+}
+
+.phoneInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding-right: 16px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+}
+
+.option {
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+}
+
+.active {
+  background: #ecfdf5;
+}

@@ -12,13 +12,13 @@ import { useAppDispatch, useAppSelector } from '../hooks/useReduxHook';
 import ConfirmDialogCustom from '../utils/components/CustomConfirmDialog';
 import qrCodeRoutes from '../views/QRCode/routes/qrRoutes';
 import toastRoutes from '../views/toast/routes/toastRoutes';
-import calendarRoutes from '../views/calendar/routes/calendarRoutes';
+import inputRoutes from '../views/input/routes/homeRoutes';
 
 const listRouters = [
   ...homeRoutes,
   ...qrCodeRoutes,
   ...toastRoutes,
-  ...calendarRoutes,
+  ...inputRoutes,
 ];
 
 const RouterComponent = () => {

@@ -1,5 +1,6 @@
 // ** styles Import
-import { options } from '../../../data/home';
+import { useNavigate } from 'react-router-dom';
+import { options } from '../../../data';
 import styles from './index.module.scss';
 
 // ** Another Import
@@ -7,14 +8,16 @@ import { useEffect, useRef, useState } from 'react';
 
 function Header() {
   // ** State
-  const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState('home');
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [active, setActive] = useState<string>('home');
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const [underlineStyle, setUnderlineStyle] = useState({
     left: 0,
     width: 0,
   });
 
+  // ** Hooks
+  const navigate = useNavigate();
   const menuRef = useRef<HTMLElement>(null);
 
   // ** Function
@@ -30,6 +33,7 @@ function Header() {
   };
 
   const handleMenuClick = (item: any, e: any) => {
+    navigate(item.id);
     setActive(item.id);
     scrollToSection(item.id);
 
@@ -44,7 +48,7 @@ function Header() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      options.forEach((sec) => {
+      options.forEach((sec: any) => {
         const el = document.getElementById(sec.id);
         if (!el) return;
 
@@ -62,13 +66,13 @@ function Header() {
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={() => navigate('/')}>
           Zootopia<span className={styles.pink}>Kids</span>
         </div>
 
         {/* -------- Desktop Menu -------- */}
         <nav className={styles.menu} ref={menuRef}>
-          {options.map((item) => (
+          {options.map((item: any) => (
             <div
               key={item.id}
               className={`${styles['menu-item']} ${
@@ -109,7 +113,7 @@ function Header() {
 
       {/* -------- Mobile Menu -------- */}
       <div className={`${styles['mobile-menu']} ${open ? styles.open : ''}`}>
-        {options.map((item) => (
+        {options.map((item: any) => (
           <button key={item.id} onClick={() => scrollToSection(item.id)}>
             {item.label}
           </button>

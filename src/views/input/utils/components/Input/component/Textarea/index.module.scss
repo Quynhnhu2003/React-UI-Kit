@@ -1,0 +1,66 @@
+.textareaContainer {
+  width: 100%;
+  gap: 0.5rem;
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+  &__title {
+    display: block;
+    font-size: 1rem;
+    color: #7d7d7d;
+    font-weight: 400;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    position: relative;
+    &__textarea {
+      width: 100%;
+      font-size: 1rem;
+      color: #464646;
+      min-height: 6rem;
+      height: fit-content;
+      border-radius: 0.5rem;
+      background-color: transparent;
+      border: 0.063rem solid #e7e7e7;
+      textarea {
+        width: 100%;
+        border: none;
+        font-size: 1rem;
+        max-width: 24rem;
+        padding: 0.5rem 0.75rem;
+        color: #464646;
+        &::placeholder {
+          color: #cbcbcb;
+        }
+      }
+    }
+    &__textValue {
+      right: 0.625rem;
+      bottom: 0.313rem;
+      position: absolute;
+      span {
+        font-size: 0.75rem;
+      }
+    }
+    &__clearable {
+      width: 1rem;
+      right: 0rem;
+      height: 1rem;
+      top: 0.313rem;
+      color: #fff;
+      display: flex;
+      border-radius: 50%;
+      position: absolute;
+      justify-content: center;
+      background-color: #000;
+      border: 0.063rem solid #000;
+      i {
+        display: flex;
+        font-weight: 500;
+        font-size: 0.625rem;
+        align-items: center;
+      }
+    }
+  }
+}

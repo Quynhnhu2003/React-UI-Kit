@@ -2,7 +2,7 @@
 import styles from './index.module.scss';
 
 // ** Another Import
-import { options } from '../../../../data/home';
+import { options } from '../../../../data';
 import { useNavigate } from 'react-router-dom';
 
 function HomeContainer() {
