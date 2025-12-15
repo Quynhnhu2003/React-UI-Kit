@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 
 // ** Another Import
 import { jsPDF } from 'jspdf';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import domtoimage from 'dom-to-image';
 import { QRCodeCanvas } from 'qrcode.react';
 import CountDown from '../../../QRCode/components/CountDown';
@@ -11,7 +11,7 @@ import CountDown from '../../../QRCode/components/CountDown';
 export default function ListQR({ dataQR }: any) {
   // ** State
   const [countDown, setCountDown] = useState<number>(0);
-  const [pages, setPages] = useState<number>(1);
+  const [_, setPages] = useState<number>(1);
 
   // ** Function
   const chunkArray = (arr: any[], size: number) => {

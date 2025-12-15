@@ -121,7 +121,7 @@ function QRCode() {
             <input
               type='text'
               id='url'
-              placeholder='https://hi.fpt.vn/web/internet-upgrade/service-package/.....'
+              placeholder='https://google.com/.....'
               {...register('url', { required: true, maxLength: 100 })}
             />
           </div>

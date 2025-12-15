@@ -41,6 +41,9 @@ function InputFile({
       <div className={styles.upload}>
         <input
           type='file'
+          name={name}
+          accept={accept}
+          multiple={multiple}
           className={styles.upload__input}
           onChange={handleChange}
           disabled={disabled}
