@@ -11,14 +11,13 @@ import CheckboxGroup from '../../utils/components/CheckboxGroup';
 
 function InputContainer() {
   // ** State
-  const [date, setDate] = useState<string>('');
-  const [amount, setAmount] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
-  const [fullPhone, setFullPhone] = useState<string>('');
+  const [amount, setAmount] = useState<string>('');
   const [sports, setSports] = useState<string[]>([]);
   const [textArea, setTextArea] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [userName, setUserName] = useState<string>('');
+  const [fullPhone, setFullPhone] = useState<string>('');
   const [datePicker, setDatePicker] = useState<string>('');
   const [role, setRole] = useState<{ item: any; name?: string }>();
   const [sex, setSex] = useState<
@@ -27,11 +26,6 @@ function InputContainer() {
       name: string;
     }>
   >([]);
-  const [phoneData, setPhoneData] = useState<{
-    country: any;
-    phone: string;
-    fullPhone: string;
-  } | null>(null);
 
   // ** Function
   const handleFileChange = (files: FileList | null) => {

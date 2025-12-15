@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 
 export interface InputTextProps {
   name?: string;
-  onChange: (text: string) => void;
+  onChange?: (text: string) => void;
   value?: string;
   disabled?: boolean;
   required?: boolean;
