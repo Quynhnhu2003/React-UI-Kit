@@ -1,6 +1,5 @@
 // ** Components Imports
 import Home from '../pages/HomeContainer';
-import { HomeRoutePaths } from '../utils/enum/home';
 import LayoutHome from '../utils/components/layout';
 
 // ** Another Imports
@@ -12,7 +11,7 @@ const homeRoutes: RouteObject[] = [
     element: <LayoutHome />,
     children: [
       {
-        path: HomeRoutePaths.HOME,
+        path: '',
         element: <Home />,
       },
     ],

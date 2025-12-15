@@ -67,7 +67,7 @@ function Header() {
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo} onClick={() => navigate('/')}>
-          Zootopia<span className={styles.pink}>Kids</span>
+          React UI<span className={styles.pink}> Kits</span>
         </div>
 
         {/* -------- Desktop Menu -------- */}
