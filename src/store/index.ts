@@ -9,7 +9,7 @@ export const store = configureStore({
     home: homeReducer,
   },
   devTools: {
-    name: 'ui-example Redux Store',
+    name: 'react-ui-kits Redux Store',
     trace: true,
     traceLimit: 25,
   },
