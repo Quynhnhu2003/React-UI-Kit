@@ -24,7 +24,7 @@ const Layout = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <BrowserRouter basename='/web/ui-example'>
+        <BrowserRouter basename='/'>
           <ToastifyProvider />
           <RouterComponent />
         </BrowserRouter>
