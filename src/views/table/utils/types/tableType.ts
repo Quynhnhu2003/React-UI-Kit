@@ -9,10 +9,11 @@ export interface Column<T> {
   // Generic để table dùng cho mọi loại data
   key: string;
   title: string;
+  align?: Align;
   sortable?: boolean;
   dataIndex?: keyof T;
+  searchable?: boolean;
   width?: number | string;
-  align?: Align;
   render?: (
     value: T[keyof T] | undefined,
     record: T,
