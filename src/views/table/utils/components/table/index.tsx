@@ -10,6 +10,7 @@ import TablePagination from "./components/TablePagination";
 import { TableProps } from "../../types/tableType";
 import { useTable } from "./hooks/functionTable";
 import useTableSearch from "./hooks/searchData";
+import TableSkeleton from "./components/TableSkeleton";
 
 function Table<T extends object>({
   data,
@@ -35,6 +36,7 @@ function Table<T extends object>({
     pagination,
   });
 
+  if (loading) return <TableSkeleton />
   return (
     <div
       className={`${styles.tableWrapper}  ${styles[`size-${size}`]}
@@ -87,13 +89,7 @@ function Table<T extends object>({
         </thead>
 
         <tbody>
-          {loading ? (
-            <tr>
-              <td colSpan={columns.length} className={styles.loading}>
-                Loading...
-              </td>
-            </tr>
-          ) : table.rows.length === 0 ? (
+          {table.rows.length === 0 ? (
             <EmptyState colSpan={columns.length} text={emptyText} />
           ) : (
             table.rows.map((record: any, index: number) => (

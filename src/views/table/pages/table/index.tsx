@@ -2,7 +2,7 @@
 import styles from "./index.module.scss";
 
 // ** Another Import
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { users } from "../../../../data/user";
 import Table from "../../utils/components/table";
 import { Column, User } from "../../utils/types/tableType";
@@ -10,6 +10,7 @@ import { Column, User } from "../../utils/types/tableType";
 function UserTable() {
   // ** State
   const [page, setPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const columns: Column<User>[] = [
     {
@@ -66,12 +67,20 @@ function UserTable() {
     },
   ];
 
+  // ** useEffect
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <Table
         columns={columns}
         data={users}
         rowKey="id"
+        loading={loading}
         pagination={{
           page,
           pageSize: 7,
