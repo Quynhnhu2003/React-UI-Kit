@@ -1,0 +1,11 @@
+.pagination {
+  gap: 12px;
+  width: 100%;
+  display: flex;
+  padding-top: 12px;
+  justify-content: flex-end;
+  button {
+    border: none;
+    background-color: transparent;
+  }
+}

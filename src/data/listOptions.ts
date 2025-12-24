@@ -15,8 +15,8 @@ export const options = [
     id: 'input',
     label: 'Input',
   },
-  // {
-  //   id: 'table',
-  //   label: 'Table',
-  // },
+  {
+    id: 'table',
+    label: 'Table',
+  },
 ];

@@ -13,12 +13,14 @@ import ConfirmDialogCustom from '../utils/components/CustomConfirmDialog';
 import qrCodeRoutes from '../views/QRCode/routes/qrRoutes';
 import toastRoutes from '../views/toast/routes/toastRoutes';
 import inputRoutes from '../views/input/routes/homeRoutes';
+import tableRoutes from '../views/table/routes/tableRoutes';
 
 const listRouters = [
   ...homeRoutes,
   ...qrCodeRoutes,
   ...toastRoutes,
   ...inputRoutes,
+  ...tableRoutes
 ];
 
 const RouterComponent = () => {
