@@ -9,11 +9,11 @@
   border-radius: 12px;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
+  /* subtle shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   @media (max-width: 500px) {
     padding: 24px;
   }
-  /* subtle shadow */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 /* ================= TABLE ================= */

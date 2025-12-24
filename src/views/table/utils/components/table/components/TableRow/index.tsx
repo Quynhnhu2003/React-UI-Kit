@@ -1,8 +1,4 @@
-// ** Styles Import
-import styles from "./index.module.scss";
-
 // ** Another Import
-import TableCell from "../TableCell";
 import { Column } from "../../../../types/tableType";
 
 interface Props<T> {
