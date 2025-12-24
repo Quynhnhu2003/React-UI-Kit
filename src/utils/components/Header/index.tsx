@@ -1,9 +1,9 @@
 // ** styles Import
-import { useNavigate } from 'react-router-dom';
-import { options } from '../../../data';
 import styles from './index.module.scss';
 
 // ** Another Import
+import { options } from '../../../data';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 
 function Header() {
