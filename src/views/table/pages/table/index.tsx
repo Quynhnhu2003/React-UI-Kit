@@ -56,6 +56,9 @@ function UserTable() {
             <span className="material-symbols-outlined">edit</span>
           </button>
           <button onClick={() => console.log("record delete", record)}>
+            <span className="material-symbols-outlined">add_box</span>
+          </button>
+          <button onClick={() => console.log("record delete", record)}>
             <span className="material-symbols-outlined">delete</span>
           </button>
         </div>

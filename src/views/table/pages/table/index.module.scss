@@ -1,17 +1,9 @@
 .wrapper {
   gap: 40px;
   top: 80px;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  display: grid;
-  overflow-y: auto;
   position: absolute;
-  background: $bg-gray;
-  padding-bottom: 10rem !important;
-  @media (max-width: 500px) {
-    padding: 24px;
-  }
+  width: 100%;
+  height: 100%;
 }
 
 .actions {
