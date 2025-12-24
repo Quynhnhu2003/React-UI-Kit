@@ -13,7 +13,6 @@ export interface Column<T> {
   dataIndex?: keyof T;
   width?: number | string;
   align?: Align;
-  searchable?: boolean;
   render?: (
     value: T[keyof T] | undefined,
     record: T,
@@ -26,7 +25,8 @@ export interface TableProps<T> {
   columns: Column<T>[];
   data: T[];
   rowKey: keyof T;
-
+  
+  searchable?: boolean;
   size?: Size;
   variant?: Variant;
   loading?: boolean;

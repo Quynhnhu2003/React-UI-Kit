@@ -12,15 +12,16 @@ import { useTable } from "./hooks/functionTable";
 import useTableSearch from "./hooks/searchData";
 
 function Table<T extends object>({
-  columns,
   data,
   rowKey,
-  loading = false,
-  emptyText = "No data",
+  columns,
   className,
   pagination,
-  size = "md",
+  size = "lg",
+  loading = false,
+  searchable=true,
   variant = "default",
+  emptyText = "No data",
 }: TableProps<T>) {
   // ** Hooks
   const search = useTableSearch<T>({
@@ -39,7 +40,7 @@ function Table<T extends object>({
       className={`${styles.tableWrapper}  ${styles[`size-${size}`]}
         ${styles[`variant-${variant}`]} ${className ?? ""}`}
     >
-      <input
+      {searchable && <input
         className={styles.search}
         placeholder="searching..."
         value={search.search}
@@ -47,7 +48,7 @@ function Table<T extends object>({
           search.setSearch(e.target.value);
           pagination?.onChange?.(1);
         }}
-      />
+      />}
 
       <table className={styles.table}>
         <thead>
